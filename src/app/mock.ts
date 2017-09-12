@@ -1,52 +1,57 @@
 /**
  * Created by anhle on 8/5/17.
  */
+export const PortfolioSummary = [
+    {
+        name: 'portfolio value',
+        value: '1234323.21'
+    },
+    {
+        name: 'buying power',
+        value: '1233.21'
+    },
+    {
+        name: 'withdrawable cash',
+        value: '234323.21'
+    }
+];
+
 export const PositionList = [
     {
-        currentPrice: 232,
-        bought: 221,
-        value: 1212,
-        profit: 15,
-        percentChange: 0.1,
+        symbolUX: 'TSLA',
+        boughtUX: '90 shares',
         status: 'up',
-        group: 'position'
+        profitUX: '2321.21'
+
     },
     {
-        currentPrice: 222,
-        bought: 121.323,
-        value: 14312,
-        profit: 325.23,
-        percentChange: 0.2,
-        status: 'down',
-        group: 'position'
-    },
-    {
-        currentPrice: 222,
-        bought: 121,
-        value: 14312,
-        profit: 325,
-        percentChange: 0.2,
-        status: 'down',
-        group: 'position'
-    },
-    {
-        currentPrice: 222,
-        bought: 121,
-        value: 14312,
-        profit: 325,
-        percentChange: 0.2,
-        status: 'down',
-        group: 'position'
-    },
-    {
-        currentPrice: 232,
-        bought: 221,
-        value: 1212,
-        profit: 15,
-        percentChange: 0.1,
+        symbolUX: 'TSLA',
+        boughtUX: '90 shares',
         status: 'up',
-        group: 'position'
-    }
+        profitUX: '2321.21'
+
+    },
+    {
+        symbolUX: 'TSLA',
+        boughtUX: '90 shares',
+        status: 'up',
+        profitUX: '2321.21'
+
+    },
+    {
+        symbolUX: 'TSLA',
+        boughtUX: '90 shares',
+        status: 'up',
+        profitUX: '2321.21'
+
+    },
+    {
+        symbolUX: 'TSLA',
+        boughtUX: '90 shares',
+        status: 'up',
+        profitUX: '2321.21'
+
+    },
 ];
 
 export const WatchList = [

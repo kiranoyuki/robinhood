@@ -1,9 +1,6 @@
-@import '../../styles/dark-theme';
-@import '../../../style';
+@import '../../styles/white-theme';
 
-.positionTile{
-  width: 200px;
-  height: $item-height;
-  display: inline;
-  background-color: #74828d;
+.stock-tile{
+  @include stock-tile();
 }
+

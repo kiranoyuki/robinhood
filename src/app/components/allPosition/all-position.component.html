@@ -15,10 +15,11 @@
 	<!--</div>-->
 
 <!--</div>-->
+
 <div id="position-page" class="stock-page">
 	<div class="container-fluid">
 		<div class="row top-bar">
-			<div id="search-positions" class="col-sm-6 search">
+			<div id="search-positions" class="col-sm-4 search">
 				<div class="input-group">
 					<span class="input-group-addon" id="basic-addon1">
 						<span class="glyphicon glyphicon-search" aria-hidden="true"></span>
@@ -27,12 +28,24 @@
 				</div>
 			</div>
 
-			<div id="portfolio-summary" class="col-sm-6 portfolio-head-bar">
+			<div id="portfolio-summary" class="col-sm-8 portfolio-head-bar">
 				<div class="portfolio-item" *ngFor="let item of portfolioSummary">
 					<h6>{{item.name}}</h6>
 					<h5><span>$</span>{{item.value}}</h5>
 				</div>
 			</div>
+
+
+
+		</div>
+
+
+
+		<div class="stock-list">
+			<div *ngFor="let position of positionList" class="stock">
+				<position-tile [position]="position"></position-tile>
+			</div>
+
 		</div>
 
 	</div>

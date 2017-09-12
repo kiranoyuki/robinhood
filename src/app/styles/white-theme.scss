@@ -22,23 +22,6 @@ $std-width: 70px;
   border-right: 2px solid $active-background-color;
 }
 
-@mixin stock-page{
-
-    height: 100vh;
-    margin-left: $std-width;
-    overflow: hidden;
-
-    .container-fluid{
-      padding-left: 0px;
-      padding-right: 0px;
-    }
-
-    @include custom-top-bar();
-
-
-
-}
-
 
 @mixin custom-top-bar {
 
@@ -106,7 +89,39 @@ $std-width: 70px;
         }
       }
     }
+}
 
+
+
+@mixin stock-page{
+
+  height: 100vh;
+  margin-left: $std-width;
+  overflow: hidden;
+
+  .container-fluid{
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+
+  @include custom-top-bar();
+
+}
+
+@mixin stock{
+  height: $std-width;
+  width: 400px;
+  border: 1px solid $border-color;
+  background-color: $active-background-color;
+
+}
+
+@mixin stock-tile{
+  padding: 0px 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
 
 
 }

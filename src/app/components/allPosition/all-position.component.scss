@@ -21,4 +21,12 @@
 
 #position-page{
 	@include stock-page();
+
+	.stock {
+		@include stock();
+	}
+
+	.stock-tile{
+		@include stock-tile();
+	}
 }

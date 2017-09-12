@@ -1,19 +1,15 @@
-<div class="positionTile">
+<div class="position-tile stock-tile">
 
-		<div class="container-fluid">
-			<div class="row">
-				<div class="xs-col-4">
-					<h2>{{position.symbolUX}}</h2>
-					<h5>{{position.boughtUX}}</h5>
-				</div>
-				<div class="xs-col-4">
-					<div id="graph" class="{{color}}">
-					</div>
-				</div>
-				<div class="xs-col-4 {{color}}">
-					<h3>${{position.profitUX}}</h3>
-				</div>
-			</div>
+	<div class="">
+		<h4>{{position.symbolUX}}</h4>
+		<h5>{{position.boughtUX}}</h5>
+	</div>
+	<div class="">
+		<div id="graph" class="{{color}}">
 		</div>
+	</div>
+	<div>
+		<h4 class="{{color}}">${{position.profitUX}}</h4>
+	</div>
 
 </div>
