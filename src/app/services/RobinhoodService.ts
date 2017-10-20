@@ -46,13 +46,13 @@ export class RobinhoodService{
     document_requests:  'upload/document_requests/',
     user: 'user/',
     historicals: 'quotes/historicals/',
-
     user_additional_info: "user/additional_info/",
     user_basic_info: "user/basic_info/",
     user_employment: "user/employment/",
     user_investment_profile: "user/investment_profile/",
 
     watchlists: 'watchlists/Default',
+    add_watchlist: 'watchlists/Default/bulk_add/',
     positions: 'positions/',
     fundamentals: 'fundamentals/',
     sp500_up: 'midlands/movers/sp500/?direction=up',
@@ -410,6 +410,65 @@ export class RobinhoodService{
     res.data = data[Historical.DATA.DATA].map(x => x[Historical.DATA.HIGH_PRICE]);
 
     return res;
+  }
+
+  /**
+   * Add the stock with the symbol to the watch list and then makes an http request to update the local watch list.
+   * @param {string} symbol
+   * @returns {Promise<any>}
+   */
+  addToWatchList(symbol:string){
+    return(new Promise((resolve,reject)=>{
+      this.http.post(this._apiUrl + this._endpoints.add_watchlist, {
+        symbols: symbol
+      }).subscribe(res=>{
+        this.getWatchList().then(res2=>{
+          resolve(res);
+        },error=>{
+          reject(error);
+        });
+      }, error=>{
+        reject(error);
+      })
+    }))
+  }
+
+  /**
+   * Remove the stock from the watchlist
+   * @param {StockModule.Stock} stock
+   * @returns {Promise<any>}
+   */
+  removeFromWatchList(stock:Stock){
+    /**
+     * Parses instrument's id from the instrument's url link
+     * @param {string} url
+     * @returns {any}
+     */
+    const getInstrumentId = function(url:string){
+      let count = 0;
+      for(let i = url.length -1 ; i >= 0; i -- ){
+        if(url[i] === "\/"){
+          count ++;
+          if(count === 2){
+            return(url.substring(i+1, url.length-1));
+          }
+        }
+      }
+      return(null);
+    }
+
+    const instrumentId = getInstrumentId(stock.instrument.url);
+    return(new Promise((resolve,reject)=>{
+      this.http.delete(this._apiUrl + this._endpoints.watchlists + "\/" + instrumentId).subscribe(res=>{
+        this.getWatchList().then(res2=>{
+          resolve(res2);
+        },error=>{
+          reject(error);
+        })
+      }, error=>{
+        reject(error);
+      })
+    }))
   }
 
 
